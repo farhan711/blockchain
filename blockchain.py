@@ -7,8 +7,6 @@ from uuid import uuid4
 
 import requests
 from flask import Flask, jsonify, request
-
-
 class Blockchain:
     def __init__(self):
         self.current_transactions = []
@@ -173,6 +171,9 @@ class Blockchain:
         guess = f'{last_proof}{proof}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
         return guess_hash[:4] == "0000"
+    
+    
+    #intialization of the proof
 
 
 # Instantiate the Node
