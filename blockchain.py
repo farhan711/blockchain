@@ -131,7 +131,7 @@ class Blockchain:
         return self.last_block['index'] + 1
 
     @property
-    def last_block(self) -> Dict[str: Any]:
+    def last_block(self) -> Dict[str, Any]:
         return self.chain[-1]
 
     @staticmethod
@@ -172,8 +172,8 @@ class Blockchain:
         guess = f'{last_proof}{proof}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
         return guess_hash[:4] == "0000"
-    
-    
+
+
     #intialization of the proof
 
 
@@ -203,7 +203,7 @@ def mine():
     )
 
     # Forge the new Block by adding it to the chain
-    block = blockchain.new_block(proof)
+    block = blockchain.new_block(proof, None)
 
     response = {
         'message': "New Block Forged",
@@ -285,14 +285,14 @@ if __name__ == '__main__':
     port = args.port
 
     app.run(host='0.0.0.0', port=port)
-    
-  
+
+
 def newTrans():
     parser.add_argument('-p')
     response = {
         'message': 'Transction had been reverted successfully',
         'total_nodes': list(blockchain.nodes),
     }
-    
-    
-    
+
+
+
